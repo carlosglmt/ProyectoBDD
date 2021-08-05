@@ -106,9 +106,80 @@ create or replace view PLAYLIST as
 
 -- STATUS_PROGRAMA <- Copia manual
 
--- TIPO_CUENTA <- Tabla replicada
+-- Creación de vistas para tablas replicadas.
+declare
+    pdb_name varchar2;
+begin 
+    select sys_context('USERENV','CON_NAME')
+        into pdb_name
+    from dual;
 
--- PAIS <- Tabla replicada
+    if pdb_name = 'CMTBD_S1' then
+        -- TIPO_CUENTA <- Tabla replicada
+        create or replace view TIPO_CUENTA as
+            select tipo_cuenta_id, clave, descripcion,
+                costo_mensual
+            from tipo_cuenta_r1;
+        -- PAIS <- Tabla replicada
+        create or replace view PAIS as
+            select pais_id, clave, continente
+            from pais_r1;
+        -- TIPO_SERIE <- Tabla replicada
+        create or replace view TIPO_SERIE as
+            select tipo_serie_id, clave, descripcion
+            from tipo_serie_r1;
 
--- TIPO_SERIE <- Tabla replicada
+    elsif pdb_name = 'CMTBD_S2' then
+        -- TIPO_CUENTA <- Tabla replicada
+        create or replace view TIPO_CUENTA as
+            select tipo_cuenta_id, clave, descripcion,
+                costo_mensual
+            from tipo_cuenta_r2;
+        -- PAIS <- Tabla replicada
+        create or replace view PAIS as 
+            select pais_id, clave, continente
+            from pais_r2;
+        -- TIPO_SERIE <- Tabla replicada
+        create or replace view TIPO_SERIE as
+            select tipo_serie_id, clave, descripcion
+            from tipo_serie_r2;
 
+    elsif pdb_name = 'MSEBD_S1' then
+        -- TIPO_CUENTA <- Tabla replicada
+        create or replace view TIPO_CUENTA as
+            select tipo_cuenta_id, clave, descripcion,
+                costo_mensual
+            from tipo_cuenta_r3;
+        -- PAIS <- Tabla replicada
+        create or replace view PAIS as
+            select pais_id, clave, continente
+            from pais_r3;
+        -- TIPO_SERIE <- Tabla replicada
+        create or replace view TIPO_SERIE as
+            select tipo_serie_id, clave, descripcion
+            from tipo_serie_r3;
+
+    elsif pdb_name = 'MSEBD_S2'
+        -- TIPO_CUENTA <- Tabla replicada
+        create or replace view TIPO_CUENTA as
+            select tipo_cuenta_id, clave, descripcion,
+                costo_mensual
+            from tipo_cuenta_r4;
+        -- PAIS <- Tabla replicada
+        create or replace view PAIS as
+            select pais_id, clave, continente
+            from pais_r4;
+        -- TIPO_SERIE <- Tabla replicada
+        create or replace view TIPO_SERIE as
+            select tipo_serie_id, clave, descripcion
+            from tipo_serie_r4;
+    
+    else
+        raise_application_error(
+            -20001,
+            "PDB inválida"
+        );
+
+    end if;
+end;
+/
