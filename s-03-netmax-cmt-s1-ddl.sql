@@ -1,7 +1,7 @@
 --
 -- ER/Studio 8.0 SQL Code Generation
 -- Company :      fi.unam
--- Project :      CMT_S1.DM1
+-- Project :      CMTBD_S1.DM1
 -- Author :       carlos
 --
 -- Date Created : Wednesday, August 04, 2021 18:45:39

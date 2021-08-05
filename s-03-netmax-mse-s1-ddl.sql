@@ -1,7 +1,7 @@
 --
 -- ER/Studio 8.0 SQL Code Generation
 -- Company :      fi.unam
--- Project :      MSE_S1.DM1
+-- Project :      MSEBD_S1.DM1
 -- Author :       carlos
 --
 -- Date Created : Wednesday, August 04, 2021 18:54:13
