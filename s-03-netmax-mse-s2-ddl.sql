@@ -1,10 +1,10 @@
 --
 -- ER/Studio 8.0 SQL Code Generation
--- Company :      fi.unam
--- Project :      MSEBD_S2.DM1
+-- Company :      unam
+-- Project :      MSE_S2.DM1
 -- Author :       carlos
 --
--- Date Created : Wednesday, August 04, 2021 18:55:47
+-- Date Created : Thursday, August 05, 2021 20:17:10
 -- Target DBMS : Oracle 11g
 --
 
@@ -210,6 +210,16 @@ ALTER TABLE DOCUMENTAL_F3_MSE_S2 ADD CONSTRAINT RefPROGRAMA_F3_MSE_S21
 ALTER TABLE DOCUMENTAL_F3_MSE_S2 ADD CONSTRAINT RefPAIS_R_MSE_S26 
     FOREIGN KEY (PAIS_ID)
     REFERENCES PAIS_R_MSE_S2(PAIS_ID)
+;
+
+
+-- 
+-- TABLE: HISTORICO_STATUS_PROGRAMA 
+--
+
+ALTER TABLE HISTORICO_STATUS_PROGRAMA ADD CONSTRAINT RefSTATUS_PROGRAMA9 
+    FOREIGN KEY (STATUS_PROGRAMA_ID)
+    REFERENCES STATUS_PROGRAMA(STATUS_PROGRAMA_ID)
 ;
 
 
