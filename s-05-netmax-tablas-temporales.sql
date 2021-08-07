@@ -17,6 +17,7 @@ begin
     end loop; 
 end;
 /
+show errors
 
 Prompt tablas temporales para transparencia - Select
 

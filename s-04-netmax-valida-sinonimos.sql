@@ -55,8 +55,7 @@ select
     (select count(*) from PLAYLIST_F1) as playlist_f1,
     (select count(*) from PLAYLIST_F2) as playlist_f2,
     (select count(*) from PLAYLIST_F3) as playlist_f3,
-    (select count(*) from PLAYLIST_F4) as playlist_f4,
-    (select count(*) from PLAYLIST_F5) as playlist_f5
+    (select count(*) from PLAYLIST_F4) as playlist_f4
 from dual;
 
 Prompt validando sinonimos para TIPO_CUENTA

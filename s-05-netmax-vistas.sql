@@ -37,15 +37,15 @@ create or replace view USUARIO as
 
 -- PROGRAMA
 create or replace view PROGRAMA as
-    select p1.programa_id, p1.folio, p1.nombere, p1.descripcion,
+    select p1.programa_id, p1.folio, p1.nombre, p1.descripcion,
         p1.fecha_status, p1.tipo, p1.status_programa_id
     from programa_f1 p1
     union all 
-    select p2.programa_id, p2.folio, p2.nombere, p2.descripcion,
+    select p2.programa_id, p2.folio, p2.nombre, p2.descripcion,
         p2.fecha_status, p2.tipo, p2.status_programa_id
     from programa_f2 p2
     union all
-    select p3.programa_id, p3.folio, p3.nombere, p3.descripcion,
+    select p3.programa_id, p3.folio, p3.nombre, p3.descripcion,
         p3.fecha_status, p3.tipo, p3.status_programa_id
     from programa_f3 p3;
 
@@ -53,28 +53,28 @@ create or replace view PROGRAMA as
 create or replace view PELICULA as
     select p1.programa_id, p1.duracion, p1.sinopsis, 
         p1.clasificacion, p1.pelicula_antecedente_id
-    from pelicula_f1
+    from pelicula_f1 p1
     union all
     select p2.programa_id, p2.duracion, p2.sinopsis, 
         p2.clasificacion, p2.pelicula_antecedente_id
-    from pelicula_f2
+    from pelicula_f2 p2
     union all
     select p3.programa_id, p3.duracion, p3.sinopsis, 
         p3.clasificacion, p3.pelicula_antecedente_id
-    from pelicula_f3;
+    from pelicula_f3 p3;
 
 -- SERIE
 create or replace view SERIE as
     select s1.programa_id, s1.num_capitulos, 
-        s1.duracion_capitulo, s1.tipo_serie
+        s1.duracion_capitulo, s1.tipo_serie_id
     from serie_f1 s1
     union all
     select s2.programa_id, s2.num_capitulos, 
-        s2.duracion_capitulo, s2.tipo_serie
+        s2.duracion_capitulo, s2.tipo_serie_id
     from serie_f2 s2
     union all
     select s3.programa_id, s3.num_capitulos, 
-        s3.duracion_capitulo, s3.tipo_serie
+        s3.duracion_capitulo, s3.tipo_serie_id
     from serie_f3 s3;
 
 -- HISTORICO_STATUS_PROGRAMA <- No está fragmentada, 
@@ -99,6 +99,7 @@ create or replace view PLAYLIST as
         p3.indice, p3.num_reproducciones,
         p3.programa_id, p3.usuario_id
     from playlist_f3 p3
+    union all
     select p4.playlist_id, p4.calificacion, 
         p4.indice, p4.num_reproducciones,
         p4.programa_id, p4.usuario_id
@@ -108,7 +109,7 @@ create or replace view PLAYLIST as
 
 -- Creación de vistas para tablas replicadas.
 declare
-    pdb_name varchar2;
+    pdb_name varchar2(10);
 begin 
     select sys_context('USERENV','CON_NAME')
         into pdb_name
@@ -116,68 +117,68 @@ begin
 
     if pdb_name = 'CMTBD_S1' then
         -- TIPO_CUENTA <- Tabla replicada
-        create or replace view TIPO_CUENTA as
+        execute immediate 'create or replace view TIPO_CUENTA as
             select tipo_cuenta_id, clave, descripcion,
                 costo_mensual
-            from tipo_cuenta_r1;
+            from tipo_cuenta_r1';
         -- PAIS <- Tabla replicada
-        create or replace view PAIS as
+        execute immediate 'create or replace view PAIS as
             select pais_id, clave, continente
-            from pais_r1;
+            from pais_r1';
         -- TIPO_SERIE <- Tabla replicada
-        create or replace view TIPO_SERIE as
+        execute immediate 'create or replace view TIPO_SERIE as
             select tipo_serie_id, clave, descripcion
-            from tipo_serie_r1;
+            from tipo_serie_r1';
 
     elsif pdb_name = 'CMTBD_S2' then
         -- TIPO_CUENTA <- Tabla replicada
-        create or replace view TIPO_CUENTA as
+        execute immediate 'create or replace view TIPO_CUENTA as
             select tipo_cuenta_id, clave, descripcion,
                 costo_mensual
-            from tipo_cuenta_r2;
+            from tipo_cuenta_r2';
         -- PAIS <- Tabla replicada
-        create or replace view PAIS as 
+        execute immediate 'create or replace view PAIS as 
             select pais_id, clave, continente
-            from pais_r2;
+            from pais_r2';
         -- TIPO_SERIE <- Tabla replicada
-        create or replace view TIPO_SERIE as
+        execute immediate 'create or replace view TIPO_SERIE as
             select tipo_serie_id, clave, descripcion
-            from tipo_serie_r2;
+            from tipo_serie_r2';
 
     elsif pdb_name = 'MSEBD_S1' then
         -- TIPO_CUENTA <- Tabla replicada
-        create or replace view TIPO_CUENTA as
+        execute immediate 'create or replace view TIPO_CUENTA as
             select tipo_cuenta_id, clave, descripcion,
                 costo_mensual
-            from tipo_cuenta_r3;
+            from tipo_cuenta_r3';
         -- PAIS <- Tabla replicada
-        create or replace view PAIS as
+        execute immediate 'create or replace view PAIS as
             select pais_id, clave, continente
-            from pais_r3;
+            from pais_r3';
         -- TIPO_SERIE <- Tabla replicada
-        create or replace view TIPO_SERIE as
+        execute immediate 'create or replace view TIPO_SERIE as
             select tipo_serie_id, clave, descripcion
-            from tipo_serie_r3;
+            from tipo_serie_r3';
 
-    elsif pdb_name = 'MSEBD_S2'
+    elsif pdb_name = 'MSEBD_S2' then 
         -- TIPO_CUENTA <- Tabla replicada
-        create or replace view TIPO_CUENTA as
+        execute immediate 'create or replace view TIPO_CUENTA as
             select tipo_cuenta_id, clave, descripcion,
                 costo_mensual
-            from tipo_cuenta_r4;
+            from tipo_cuenta_r4';
         -- PAIS <- Tabla replicada
-        create or replace view PAIS as
+        execute immediate 'create or replace view PAIS as
             select pais_id, clave, continente
-            from pais_r4;
+            from pais_r4';
         -- TIPO_SERIE <- Tabla replicada
-        create or replace view TIPO_SERIE as
+        execute immediate 'create or replace view TIPO_SERIE as
             select tipo_serie_id, clave, descripcion
-            from tipo_serie_r4;
+            from tipo_serie_r4';
     
     else
         raise_application_error(
             -20001,
-            "PDB inválida"
+            'PDB inválida'
         );
 
     end if;
