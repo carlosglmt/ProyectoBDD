@@ -75,7 +75,7 @@ begin
                         -- Se lanza un error al no haber correspondencia ni local ni remota
                         raise_application_error (
                             -20020,
-                            "El registro no cumple con el esquema de fragmentación horizontal derivada"
+                            'El registro no cumple con el esquema de fragmentación horizontal derivada'
                         );
                     
                     end if;
@@ -86,7 +86,7 @@ begin
         when updating then
             raise_application_error (
                 -20030,
-                "Las operaciones update aún no se han implementado"
+                'Las operaciones update aún no se han implementado'
             );
 
         when deleting then
@@ -124,7 +124,7 @@ begin
                         -- Se lanza un error al no haber correspondencia ni local ni remota
                         raise_application_error (
                                 -20020,
-                                "El registro no cumple con el esquema de fragmentación horizontal derivada"
+                                'El registro no cumple con el esquema de fragmentación horizontal derivada'
                         );
                     end if;
                 end if;
@@ -132,4 +132,4 @@ begin
     end case;
 end;
 /
-        
+show errors        

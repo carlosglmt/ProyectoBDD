@@ -16,10 +16,10 @@ begin
 
             -- Inserción local
             if v_count > 0 then
-                insert into documental_f2 (programa_id,duracion,sinopsis,
-                    clasificacion,documental_antecedente_id)
-                values (:new.programa_id,:new.duracion,:new.sinopsis,
-                    :new.clasificacion,:new.documental_antecedente_id);
+                insert into documental_f2 (programa_id,tematica,duracion,
+                    trailer,pais_id)
+                values (:new.programa_id,:new.tematica,:new.duracion,
+                    :new.trailer,:new.pais_id);
              
             
             -- Inserción remota
@@ -69,7 +69,7 @@ begin
                         -- Se lanza un error al no haber correspondencia ni local ni remota
                         raise_application_error (
                             -20020,
-                            "El registro no cumple con el esquema de fragmentación horizontal derivada"
+                            'El registro no cumple con el esquema de fragmentación horizontal derivada'
                         );
                     
                     end if;
@@ -80,7 +80,7 @@ begin
         when updating then
             raise_application_error (
                 -20030,
-                "Las operaciones update aún no se han implementado"
+                'Las operaciones update aún no se han implementado'
             );
 
         when deleting then
@@ -117,7 +117,7 @@ begin
                         -- Se lanza un error al no haber correspondencia ni local ni remota
                         raise_application_error (
                                 -20020,
-                                "El registro no cumple con el esquema de fragmentación horizontal derivada"
+                                'El registro no cumple con el esquema de fragmentación horizontal derivada'
                         );
                     end if;
                 end if;
@@ -125,4 +125,5 @@ begin
     end case;
 end;
 /
+show errors
         

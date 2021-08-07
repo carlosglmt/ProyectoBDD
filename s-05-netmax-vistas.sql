@@ -123,7 +123,7 @@ begin
             from tipo_cuenta_r1';
         -- PAIS <- Tabla replicada
         execute immediate 'create or replace view PAIS as
-            select pais_id, clave, continente
+            select pais_id, clave, nombre, continente
             from pais_r1';
         -- TIPO_SERIE <- Tabla replicada
         execute immediate 'create or replace view TIPO_SERIE as
@@ -138,7 +138,7 @@ begin
             from tipo_cuenta_r2';
         -- PAIS <- Tabla replicada
         execute immediate 'create or replace view PAIS as 
-            select pais_id, clave, continente
+            select pais_id, clave, nombre, continente
             from pais_r2';
         -- TIPO_SERIE <- Tabla replicada
         execute immediate 'create or replace view TIPO_SERIE as
@@ -153,7 +153,7 @@ begin
             from tipo_cuenta_r3';
         -- PAIS <- Tabla replicada
         execute immediate 'create or replace view PAIS as
-            select pais_id, clave, continente
+            select pais_id, clave, nombre, continente
             from pais_r3';
         -- TIPO_SERIE <- Tabla replicada
         execute immediate 'create or replace view TIPO_SERIE as
@@ -168,7 +168,7 @@ begin
             from tipo_cuenta_r4';
         -- PAIS <- Tabla replicada
         execute immediate 'create or replace view PAIS as
-            select pais_id, clave, continente
+            select pais_id, clave, nombre, continente
             from pais_r4';
         -- TIPO_SERIE <- Tabla replicada
         execute immediate 'create or replace view TIPO_SERIE as

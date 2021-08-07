@@ -32,7 +32,7 @@ begin
                 if v_count > 0 then
                     -- Inserta el registro dentro del sitio msebd_s1
                     insert into pelicula_f2 (programa_id,duracion,sinopsis,
-                        clasificacion,pelicula,pelicula_antecedente_id)
+                        clasificacion,pelicula_antecedente_id)
                     values (:new.programa_id,:new.duracion,:new.sinopsis,
                         :new.clasificacion,:new.pelicula_antecedente_id);
                 
@@ -45,7 +45,7 @@ begin
                     if v_count > 0 then
                         -- Inserta el registro dentro del sitio msebd_s2
                         insert into pelicula_f3 (programa_id,duracion,sinopsis,
-                            clasificacion,pelicula,pelicula_antecedente_id)
+                            clasificacion,pelicula_antecedente_id)
                         values (:new.programa_id,:new.duracion,:new.sinopsis,
                             :new.clasificacion,:new.pelicula_antecedente_id);
                     
@@ -53,7 +53,7 @@ begin
                         -- Se lanza un error al no haber correspondencia ni local ni remota
                         raise_application_error (
                             -20020,
-                            "El registro no cumple con el esquema de fragmentación horizontal derivada"
+                            'El registro no cumple con el esquema de fragmentación horizontal derivada'
                         );
                     
                     end if;
@@ -64,7 +64,7 @@ begin
         when updating then
             raise_application_error (
                 -20030,
-                "Las operaciones update aún no se han implementado"
+                'Las operaciones update aún no se han implementado'
             );
 
         when deleting then
@@ -77,7 +77,7 @@ begin
 
             if v_count > 0 then
                 -- Eliminación remota <- cmtbd_s1
-                delete from pelicula_f1 where pelicula_id = :old.pelicula_id;
+                delete from pelicula_f1 where programa_id = :old.programa_id;
             
             else
                 -- Verifica si hay correspondencia remota en msebd_s1
@@ -87,7 +87,7 @@ begin
 
                 if v_count > 0 then
                     -- Eliminación remota <- msebd_s1
-                    delete from pelicula_f2 where pelicula_id = :old.pelicula_id;
+                    delete from pelicula_f2 where programa_id = :old.programa_id;
                 
                 else
                     -- Verifica si hay correspondencia remota en msebd_s2
@@ -97,13 +97,13 @@ begin
 
                     if v_count > 0 then
                         -- Eliminación remota <- msebd_s2
-                        delete from pelicula_f3 where pelicula_id = :old.pelicula_id;
+                        delete from pelicula_f3 where programa_id = :old.programa_id;
 
                     else
                         -- Se lanza un error al no haber correspondencia ni local ni remota
                         raise_application_error (
                                 -20020,
-                                "El registro no cumple con el esquema de fragmentación horizontal derivada"
+                                'El registro no cumple con el esquema de fragmentación horizontal derivada'
                         );
                     end if;
                 end if;
@@ -111,4 +111,4 @@ begin
     end case;
 end;
 /
-        
+show errors        

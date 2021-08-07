@@ -45,7 +45,7 @@ begin
             else
                 raise_application_error (
                     -20010,
-                    "El registro no cumple con el esquema de fragmentación"
+                    'El registro no cumple con el esquema de fragmentación'
                 );
             end if;
 
@@ -56,7 +56,7 @@ begin
         when updating then
             raise_application_error(
                 -20030,
-                "Las operaciones update aún no se han implementado"
+                'Las operaciones update aún no se han implementado'
             );
 
         when deleting then
@@ -79,7 +79,7 @@ begin
             else
                 raise_application_error (
                     -20010,
-                    "El registro no cumple con el esquema de fragmentación"
+                    'El registro no cumple con el esquema de fragmentación'
                 );
             end if;
 
@@ -88,3 +88,4 @@ begin
     end case;
 end;
 /
+show errors
