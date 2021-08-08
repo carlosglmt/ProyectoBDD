@@ -41,7 +41,7 @@ from dual;
 
 Prompt validando sinonimos para HISTORICO_STATUS_PROGRAMA
 select 
-    (select count(*) from HISTORICO_STATUS_PROGRAMA) as historico_status_programa
+    (select count(*) from HISTORICO_STATUS_PROGRAMA_F1) as historico_status_programa_f1
 from dual;
 
 Prompt validando sinonimos para ARCHIVO_PROGRAMA

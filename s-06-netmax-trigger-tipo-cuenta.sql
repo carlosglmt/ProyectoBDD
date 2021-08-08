@@ -56,6 +56,7 @@ begin
             update tipo_cuenta_r4 set clave = :new.clave, descripcion = :new.descripcion,
                 costo_mensual = :new.costo_mensual
             where tipo_cuenta_id = :new.tipo_cuenta_id;
+            v_count := v_count + sql%rowcount;
 
             if v_count <> 4 then
                 raise_application_error (

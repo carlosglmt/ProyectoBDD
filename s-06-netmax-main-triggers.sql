@@ -37,7 +37,7 @@ connect netmax_bdd/netmax_bdd@cmtbd_s2
 prompt =====================================
 prompt Creando triggers para msebd_s1
 prompt =====================================
-connect netmax_bdd/netmax_bdd@cmtbd_s1
+connect netmax_bdd/netmax_bdd@msebd_s1
 @s-06-netmax-trigger-usuario.sql
 @s-06-netmax-trigger-programa.sql
 @s-06-netmax-trigger-msebd-s1-serie.sql
@@ -52,7 +52,7 @@ connect netmax_bdd/netmax_bdd@cmtbd_s1
 prompt =====================================
 prompt Creando triggers para msebd_s2
 prompt =====================================
-connect netmax_bdd/netmax_bdd@cmtbd_s2
+connect netmax_bdd/netmax_bdd@msebd_s2
 @s-06-netmax-trigger-usuario.sql
 @s-06-netmax-trigger-programa.sql
 @s-06-netmax-trigger-msebd-s2-serie.sql

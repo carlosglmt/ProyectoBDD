@@ -56,6 +56,7 @@ begin
             update pais_r4 set clave = :new.clave, nombre = :new.nombre,
                 continente = :new.continente
             where pais_id = :new.pais_id;
+            v_count := v_count + sql%rowcount;
 
             if v_count <> 4 then
                 raise_application_error (

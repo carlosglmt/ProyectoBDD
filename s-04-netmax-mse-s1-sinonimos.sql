@@ -30,7 +30,7 @@ create or replace synonym serie_f2 for serie_f2_mse_s1;
 create or replace synonym serie_f3 for serie_f3_mse_s2@msebd_s2;
 
 -- HISTORICO_STATUS_PROGRAMA
-create or replace synonym historico_status_programa for historico_status_programa@msebd_s2;
+create or replace synonym historico_status_programa_f1 for historico_status_programa_f1_mse_s2@msebd_s2;
 
 -- ARCHIVO_PROGRAMA
 create or replace synonym archivo_programa_f1 for archivo_programa_f1_mse_s2@msebd_s2;

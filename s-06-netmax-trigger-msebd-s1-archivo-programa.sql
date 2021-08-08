@@ -51,13 +51,13 @@ begin
 
         when deleting then
             -- Verifica si hay correspondencia local para evitar el acceso remoto
-            if :new.tamanio <= 10 then
+            if :old.tamanio <= 10 then
                 -- Elimina el registro local
                 delete from archivo_programa_f2 
                     where num_archivo = :old.num_archivo
                     and programa_id = :old.programa_id;
             
-            elsif :new.tamanio > 10 then
+            elsif :old.tamanio > 10 then
                 -- Elimina el registro que se encuentra en el sitio msebd_s2
                 delete from archivo_programa_f1
                     where num_archivo = :old.num_archivo

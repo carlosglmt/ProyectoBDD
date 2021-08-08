@@ -1,0 +1,4 @@
+select programa_id,tematica,duracion,
+        get_remote_trailer_f2_by_id(programa_id) as trailer,pais_id
+    from documental_f1
+/

@@ -77,9 +77,11 @@ create or replace view SERIE as
         s3.duracion_capitulo, s3.tipo_serie_id
     from serie_f3 s3;
 
--- HISTORICO_STATUS_PROGRAMA <- No está fragmentada, 
---                              con el sinónimo es 
---                              suficiente.
+-- HISTORICO_STATUS_PROGRAMA 
+create or replace view HISTORICO_STATUS_PROGRAMA as
+    select h1.historico_status_prog_id, h1.fecha_status,
+        h1.status_programa_id, h1.programa_id
+    from historico_status_programa_f1 h1;
 
 -- ARCHIVO_PROGRAMA <- Tiene datos de tipo BLOB
 

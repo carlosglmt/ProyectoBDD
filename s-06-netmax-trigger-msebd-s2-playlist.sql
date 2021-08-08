@@ -110,7 +110,7 @@ begin
                         -- Verifica si hay correspondencia con el sitio cmtbd_s2
                         select count(*) into v_count
                         from usuario_f3
-                        where usuario_id = :new.usuario_id;
+                        where usuario_id = :old.usuario_id;
 
                         if v_count > 0 then
                             -- Elimina el registro en cmtbd_s2
