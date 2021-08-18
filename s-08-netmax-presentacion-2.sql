@@ -1,6 +1,8 @@
 --@Autor: Carlos Gamaliel Morales Téllez
+--@Autor: Mario Alberto Suárez Espinoza
 --@Fecha creación: 07/08/2021
---@Descripción: Archivo de carga inicial.
+--@Descripción: Archivo de carga inicial en tablas donde no existe
+--              fragmentación ni esquema de replicación
 
 clear screen
 whenever sqlerror exit rollback;

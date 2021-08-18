@@ -1,5 +1,6 @@
---@Autor: Jorge A. Rodríguez C
---@Fecha creación: dd/mm/yyyy
+--@Autor: Carlos Gamaliel Morales Téllez
+--@Autor: Mario Alberto Suárez Espinoza
+--@Fecha creación: 07/08/2021
 --@Descripción: Archivo de carga inicial - fragmentos
 
 clear screen

@@ -1,5 +1,6 @@
---@Autor: Jorge A. Rodríguez C
---@Fecha creación: dd/mm/yyyy
+--@Autor: Carlos Gamaliel Morales Téllez
+--@Autor: Mario Alberto Suárez Espinoza
+--@Fecha creación: 07/08/2021
 --@Descripción: Script encargado de crear la BDD
 
 clear screen

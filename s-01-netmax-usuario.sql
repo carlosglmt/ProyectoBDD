@@ -1,4 +1,5 @@
 --@Autor: Carlos Gamaliel Morales Téllez
+--@Autor: Mario Alberto Suárez Espinoza
 --@Fecha creación: 01/08/2021
 --@Descripción: Eliminación y creación del usuario.
 declare
@@ -24,4 +25,4 @@ grant create trigger, create any directory, create table, create session,
     create procedure, create sequence, create view, create synonym, 
     create database link to netmax_bdd;
 
-Prompt Listo!
+Prompt Usuario con permisos necesarios creado!

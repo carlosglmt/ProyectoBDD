@@ -1,5 +1,6 @@
 --@Autor: Carlos Gamaliel Morales Téllez
---@Fecha de creación: 07/08/2021
+--@Autor: Mario Alberto Suárez Espinoza
+--@Fecha creación: 07/08/2021
 --@Descripción: Script principal empleado para configurar el soporte
 --              de datos BLOB en los 4 nodos
 

@@ -1,7 +1,7 @@
---@Autor: Jorge A. Rodríguez C
---@Fecha creación: dd/mm/yyyy
---@Descripción: Script empleado para configurar el
---              Soporte de datos BLOB.
+--@Autor: Carlos Gamaliel Morales Téllez
+--@Autor: Mario Alberto Suárez Espinoza
+--@Fecha creación: 07/08/2021
+--@Descripción: Script empleado para configurar el soporte de datos BLOB.
 
 Prompt Creando objetos para leer datos BLOB
 
@@ -9,10 +9,10 @@ Prompt creando directorio
 -- el usuario netmax debe tener el privilegio create any directory
 
 --Objeto tipo Directory para representar al campo archivo_programa.archivo
-create or replace directory proyecto_final_pdfs_dir as '/bdd/proyecto-final/pdfs';
+create or replace directory proyecto_final_pdfs_dir as '/tmp/bdd/proyecto-final/pdfs';
 
 --Objeto tipo Directory empleado para almacenar los trailers de un documental.
-create or replace directory proyecto_final_trailers_dir as '/bdd/proyecto-final/trailers';
+create or replace directory proyecto_final_trailers_dir as '/tmp/bdd/proyecto-final/trailers';
 
 Prompt creando funcion para leer datos BLOB
 create or replace function fx_carga_blob(
