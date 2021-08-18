@@ -1,4 +1,5 @@
 --@Autor: Carlos Gamaliel Morales Téllez
+--@Autor: Mario Alberto Suárez Espinoza
 --@Fecha creación: 06/08/2021
 --@Descripción: Trigger SERIE para cmtbd_s2
 

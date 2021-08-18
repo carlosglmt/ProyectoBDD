@@ -1,11 +1,10 @@
 --@Autor: Carlos Gamaliel Morales Téllez
+--@Autor: Mario Alberto Suárez Espinoza
 --@Fecha creación: 06/08/2021
 --@Descripción: Trigger PROGRAMA
 
 create or replace trigger t_dml_programa
     instead of insert or update or delete on programa
-declare
-    v_count number;
 begin
     case
         when inserting then

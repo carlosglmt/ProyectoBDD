@@ -1,4 +1,5 @@
 --@Autor: Carlos Gamaliel Morales Téllez
+--@Autor: Mario Alberto Suárez Espinoza
 --@Fecha creación: 06/08/2021
 --@Descripción: Trigger DOCUMENTAL para cmtbd_s1
 
@@ -24,7 +25,7 @@ begin
             
             -- Inserción remota
             else
-                -- Verivica si hay correspondencia con el sitio remoto msebd_s1
+                -- Verifica si hay correspondencia con el sitio remoto msebd_s1
                 select count(*) into v_count
                 from programa_f2
                 where programa_id = :new.programa_id;

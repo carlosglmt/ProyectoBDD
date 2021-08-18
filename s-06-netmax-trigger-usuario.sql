@@ -1,22 +1,19 @@
 --@Autor: Carlos Gamaliel Morales Téllez
+--@Autor: Mario Alberto Suárez Espinoza
 --@Fecha creación: 06/08/2021
 --@Descripción: Trigger USUARIO
 
 create or replace trigger t_dml_usuario
     instead of insert or update or delete on usuario
-declare
-    v_count number;
 begin
     case
         when inserting then
-            v_count := 0;
             -- Verificando si el nuevo registro pertenecerá al sitio cmtbd_s1
             if :new.vigente = 1 and :new.tipo_cuenta_id = 1 then
                 insert into usuario_f1 (usuario_id,email,nombre,ap_paterno,ap_materno,
                     fecha_ingreso,fecha_cuenta_fin,vigente,tipo_cuenta_id)
                 values (:new.usuario_id,:new.email,:new.nombre,:new.ap_paterno,:new.ap_materno,
                     :new.fecha_ingreso,:new.fecha_cuenta_fin,:new.vigente,:new.tipo_cuenta_id);
-                v_count := v_count + sql%rowcount;
 
             -- Verificando si el nuevo registro pertenecerá al sitio msebd_s1
             elsif :new.vigente = 1 and :new.tipo_cuenta_id = 2 then
@@ -24,7 +21,6 @@ begin
                     fecha_ingreso,fecha_cuenta_fin,vigente,tipo_cuenta_id)
                 values (:new.usuario_id,:new.email,:new.nombre,:new.ap_paterno,:new.ap_materno,
                     :new.fecha_ingreso,:new.fecha_cuenta_fin,:new.vigente,:new.tipo_cuenta_id);
-                v_count := v_count + sql%rowcount;
 
             -- Verificando si el nuevo registro pertenecerá al sitio cmtbd_s2
             elsif :new.vigente = 1 and :new.tipo_cuenta_id = 3 then
@@ -32,7 +28,6 @@ begin
                     fecha_ingreso,fecha_cuenta_fin,vigente,tipo_cuenta_id)
                 values (:new.usuario_id,:new.email,:new.nombre,:new.ap_paterno,:new.ap_materno,
                     :new.fecha_ingreso,:new.fecha_cuenta_fin,:new.vigente,:new.tipo_cuenta_id);
-                v_count := v_count + sql%rowcount;
 
             -- Verificando si el nuevo registro pertenecerá al sitio msebd_s2
             elsif :new.vigente = 0 then
@@ -40,7 +35,6 @@ begin
                     fecha_ingreso,fecha_cuenta_fin,vigente,tipo_cuenta_id)
                 values (:new.usuario_id,:new.email,:new.nombre,:new.ap_paterno,:new.ap_materno,
                     :new.fecha_ingreso,:new.fecha_cuenta_fin,:new.vigente,:new.tipo_cuenta_id);
-                v_count := v_count + sql%rowcount;
 
             else
                 raise_application_error (
