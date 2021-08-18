@@ -1,4 +1,5 @@
 --@Autor: Carlos Gamaliel Morales Téllez
+--@Autor: Mario Alberto Suárez Espinoza
 --@Fecha creación: 05/08/2021
 --@Descripción: Definición de tablas temporales para manejo de datos BLOB
 
@@ -24,26 +25,17 @@ Prompt tablas temporales para transparencia - Select
 -- Tablas temporales para DOCUMENTAL
 create global temporary table ts_documental_1 (
     programa_id number(10,0)    constraint ts_documental_1_pk primary key,
-    tematica    varchar2(100)   not null,
-    duracion    number(5,2)     not null,
-    trailer     blob            not null,
-    pais_id     number(2,0)     not null
+    trailer     blob            not null
 ) on commit preserve rows;
 
 create global temporary table ts_documental_2 (
     programa_id number(10,0)    constraint ts_documental_2_pk primary key,
-    tematica    varchar2(100)   not null,
-    duracion    number(5,2)     not null,
-    trailer     blob            not null,
-    pais_id     number(2,0)     not null
+    trailer     blob            not null
 ) on commit preserve rows;
 
 create global temporary table ts_documental_3 (
     programa_id number(10,0)    constraint ts_documental_3_pk primary key,
-    tematica    varchar2(100)   not null,
-    duracion    number(5,2)     not null,
-    trailer     blob            not null,
-    pais_id     number(2,0)     not null
+    trailer     blob            not null
 ) on commit preserve rows;
 
 -- Tablas temporales para ARCHIVO_PROGRAMA
@@ -51,16 +43,14 @@ create global temporary table ts_archivo_programa_1 (
     num_archivo number(5,0)     not null,
     programa_id number(10,0)    not null,
     archivo     blob            not null,
-    tamanio     number(10,2)    not null,
-    constraint ts_archivo_programa_1 primary key (num_archivo,programa_id)
+    constraint ts_archivo_programa_1_pk primary key (num_archivo,programa_id)
 ) on commit preserve rows;
 
 create global temporary table ts_archivo_programa_2 (
     num_archivo number(5,0)     not null,
     programa_id number(10,0)    not null,
     archivo     blob            not null,
-    tamanio     number(10,2)    not null,
-    constraint ts_archivo_programa_2 primary key (num_archivo,programa_id)
+    constraint ts_archivo_programa_2_pk primary key (num_archivo,programa_id)
 ) on commit preserve rows;
 
 Prompt tablas temporales para transparencia - Insert
@@ -96,7 +86,7 @@ create global temporary table ti_archivo_programa_1 (
     programa_id number(10,0)    not null,
     archivo     blob            not null,
     tamanio     number(10,2)    not null,
-    constraint ti_archivo_programa_1 primary key (num_archivo,programa_id)
+    constraint ti_archivo_programa_1_pk primary key (num_archivo,programa_id)
 ) on commit preserve rows;
 
 create global temporary table ti_archivo_programa_2 (
@@ -104,6 +94,5 @@ create global temporary table ti_archivo_programa_2 (
     programa_id number(10,0)    not null,
     archivo     blob            not null,
     tamanio     number(10,2)    not null,
-    constraint ti_archivo_programa_2 primary key (num_archivo,programa_id)
+    constraint ti_archivo_programa_2_pk primary key (num_archivo,programa_id)
 ) on commit preserve rows;
-

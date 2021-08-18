@@ -1,4 +1,5 @@
 --@Autor: Carlos Gamaliel Morales Téllez
+--@Autor: Mario Alberto Suárez Espinoza
 --@Fecha creación: 06/08/2021
 --@Descripción: Definición de vistas con columnas BLOB para msebd_s1
 
@@ -21,7 +22,7 @@ Prompt creando vista ARCHIVO_PROGRAMA
 create or replace view ARCHIVO_PROGRAMA as
     select num_archivo,programa_id,
         get_remote_archivo_f1_by_id(num_archivo,programa_id) as archivo,
-        tamanio 
+        tamanio
     from archivo_programa_f1
     union all
     select num_archivo,programa_id,archivo,tamanio 

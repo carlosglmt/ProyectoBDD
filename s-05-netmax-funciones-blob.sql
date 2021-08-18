@@ -1,4 +1,5 @@
 --@Autor: Carlos Gamaliel Morales Téllez
+--@Autor: Mario Alberto Suárez Espinoza
 --@Fecha creación: 06/08/2021
 --@Descripción: Definición de funciones para acceso a BLOBs
 
@@ -14,7 +15,7 @@ begin
     delete from ts_documental_1;
     --inserta los datos obtenidos del fragmento remoto a la tabla temporal.
     insert into ts_documental_1 
-        select programa_id,tematica,duracion,trailer,pais_id
+        select programa_id,trailer
         from documental_f1 
         where programa_id = v_id;
     --obtiene el registro de la tabla temporal y lo regresa como blob
@@ -43,7 +44,7 @@ begin
     delete from ts_documental_2;
     --inserta los datos obtenidos del fragmento remoto a la tabla temporal.
     insert into ts_documental_2 
-        select programa_id,tematica,duracion,trailer,pais_id
+        select programa_id,trailer
         from documental_f2 
         where programa_id = v_id;
     --obtiene el registro de la tabla temporal y lo regresa como blob
@@ -72,7 +73,7 @@ begin
     delete from ts_documental_3;
     --inserta los datos obtenidos del fragmento remoto a la tabla temporal.
     insert into ts_documental_3 
-        select programa_id,tematica,duracion,trailer,pais_id
+        select programa_id,trailer
         from documental_f3 
         where programa_id = v_id;
     --obtiene el registro de la tabla temporal y lo regresa como blob
@@ -104,7 +105,7 @@ begin
     delete from ts_archivo_programa_1;
     --inserta los datos obtenidos del fragmento remoto a la tabla temporal.
     insert into ts_archivo_programa_1 
-        select num_archivo,programa_id,archivo,tamanio
+        select num_archivo,programa_id,archivo
         from archivo_programa_f1 
         where num_archivo = v_num_archivo
         and programa_id = v_programa_id;
@@ -136,7 +137,7 @@ begin
     delete from ts_archivo_programa_2;
     --inserta los datos obtenidos del fragmento remoto a la tabla temporal.
     insert into ts_archivo_programa_2 
-        select num_archivo,programa_id,archivo,tamanio
+        select num_archivo,programa_id,archivo
         from archivo_programa_f2 
         where num_archivo = v_num_archivo
         and programa_id = v_programa_id;
