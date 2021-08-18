@@ -46,19 +46,19 @@ create or replace synonym playlist_f4 for playlist_f4_mse_s2@msebd_s2;
 -- COPIA MANUAL
 
 -- TIPO_CUENTA
-create or replace synonym tipo_cuenta_r1 for tipo_cuenta_r_cmt_s1@cmtbd_s1;
+create or replace synonym tipo_cuenta_r1 for tipo_cuenta_r_mse_s1;
 create or replace synonym tipo_cuenta_r2 for tipo_cuenta_r_cmt_s2@cmtbd_s2;
-create or replace synonym tipo_cuenta_r3 for tipo_cuenta_r_mse_s1;
+create or replace synonym tipo_cuenta_r3 for tipo_cuenta_r_cmt_s1@cmtbd_s1;
 create or replace synonym tipo_cuenta_r4 for tipo_cuenta_r_mse_s2@msebd_s2;
 
 -- PAIS
-create or replace synonym pais_r1 for pais_r_cmt_s1@cmtbd_s1;
+create or replace synonym pais_r1 for pais_r_mse_s1;
 create or replace synonym pais_r2 for pais_r_cmt_s2@cmtbd_s2;
-create or replace synonym pais_r3 for pais_r_mse_s1;
+create or replace synonym pais_r3 for pais_r_cmt_s1@cmtbd_s1;
 create or replace synonym pais_r4 for pais_r_mse_s2@msebd_s2;
 
 -- TIPO_SERIE
-create or replace synonym tipo_serie_r1 for tipo_serie_r_cmt_s1@cmtbd_s1;
+create or replace synonym tipo_serie_r1 for tipo_serie_r_mse_s1;
 create or replace synonym tipo_serie_r2 for tipo_serie_r_cmt_s2@cmtbd_s2;
-create or replace synonym tipo_serie_r3 for tipo_serie_r_mse_s1;
+create or replace synonym tipo_serie_r3 for tipo_serie_r_cmt_s1@cmtbd_s1;
 create or replace synonym tipo_serie_r4 for tipo_serie_r_mse_s2@msebd_s2;

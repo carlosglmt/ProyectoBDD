@@ -1,4 +1,5 @@
 --@Autor: Carlos Gamaliel Morales Téllez
+--@Autor: Mario Alberto Suárez Espinoza
 --@Fecha creación: 04/08/2021
 --@Descripción: Creación de sinónimos para CMTBD_S1
 
