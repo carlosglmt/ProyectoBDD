@@ -1,4 +1,5 @@
 --@Autor: Carlos Gamaliel Morales Téllez
+--@Autor: Mario Alberto Suárez Espinoza
 --@Fecha creación: 01/08/2021
 --@Descripción: Creación de ligas en los 4 nodos.
 clear screen
